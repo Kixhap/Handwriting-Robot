@@ -1,7 +1,6 @@
 import tkinter as tk
 from tkinter import messagebox, scrolledtext
 from tkinter import ttk  # Import ttk for themed widgets
-from tkinter.messagebox import showerror
 
 from handwriting_synthesis import Hand
 from Request import get_openai_response
@@ -10,22 +9,20 @@ def handler():
     response = get_openai_response(lines_entry.get("1.0", tk.END))
     generate_handwriting(response)
 
-# Function to format input into lines with a maximum of 65 characters
+# Function to format into 60 char per line
 def format_lines(text):
     formatted_lines = []
-    words = text.split()  # Split the input text into words
+    words = text.split()
 
     current_line = ""
     for word in words:
-        # Check if adding the next word would exceed the 65-character limit
-        if len(current_line) + len(word) + 1 > 65:  # +1 for the space
-            # If the current line is not empty, add it to the list
+        # Check length
+        if len(current_line) + len(word) + 1 > 60:
             if current_line:
                 formatted_lines.append(current_line)
-            current_line = word  # Start a new line with the current word
+            current_line = word
         else:
-            # Add the word to the current line
-            if current_line:  # If it's not the first word, add a space
+            if current_line:
                 current_line += " "
             current_line += word
 
@@ -55,7 +52,7 @@ def generate_handwriting(response):
         # Set default values for stroke widths and colors
         stroke_widths = [1 for _ in lines]
         stroke_colors = ['black' for _ in lines]
-        biases = [.75 for _ in lines]
+        biases = [.7 for _ in lines]
 
         # Create handwriting object
         hand = Hand()

@@ -1,11 +1,10 @@
 from openai import OpenAI
 import os
 from dotenv import load_dotenv
-import re
 
 # Define the regex pattern to allow only specified characters
 # The regex will match any character in the set defined within the square brackets
-reg = r"[9Df;'6FNeT?hYoE-LnP8j7)Hp v4kCUsyuGVcK!Jir2dlxzbb1.Aa#IWw5gM3mq:RBS]"
+reg = r"9Gn()T'p,ymRB0MLY#18si?-Du:b2AqeJ5g9!PatHoFcO.h6NIkd3 V 74rjlKWzESCU;xwvf"
 
 # Load environment variables from .env file
 load_dotenv()
@@ -35,7 +34,17 @@ def get_openai_response(question):
             print(chunk.choices[0].delta.content, end="")
             response += chunk.choices[0].delta.content
 
-    # Use regex to filter the response, keeping only characters defined in 'reg'
-    response = ''.join(re.findall(reg, response))
+    replacement_map = {
+        "Z": "z", "Ż": "z", "Ź": "z", "ź": "z", "ż": "z",
+        "Ś": "s", "ś": "s",
+        "ł": "l", "Ł": "l",
+        "ć": "c", "Ć": "c",
+        "ą": "a", "Ą": "a",
+        "ę": "e", "Ę": "e",
+        "ń": "n", "Ń": "n",
+        "ó": "o", "Ó": "o"
+    }
+    result = "".join(replacement_map.get(char, char) for char in response)
+    response = "".join(char for char in result if char in reg)
 
     return response
