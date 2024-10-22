@@ -2,12 +2,17 @@ import tkinter as tk
 from tkinter import messagebox, scrolledtext
 from tkinter import ttk  # Import ttk for themed widgets
 
+from Translate import svg_to_gcode
 from handwriting_synthesis import Hand
 from Request import get_openai_response
+from Translate import start
 
 def handler():
     response = get_openai_response(lines_entry.get("1.0", tk.END))
     generate_handwriting(response)
+
+def translate():
+    start()
 
 # Function to format into 60 char per line
 def format_lines(text):
@@ -17,7 +22,7 @@ def format_lines(text):
     current_line = ""
     for word in words:
         # Check length
-        if len(current_line) + len(word) + 1 > 60:
+        if len(current_line) + len(word) + 1 > 50:
             if current_line:
                 formatted_lines.append(current_line)
             current_line = word
@@ -101,6 +106,9 @@ styles_entry.pack(pady=5)
 
 # Create a button to trigger the handwriting generation
 generate_button = ttk.Button(root, text="Generate Handwriting", command=handler)
+generate_button.pack(pady=20)
+
+generate_button = ttk.Button(root, text="Translate svg to gcode", command=translate)
 generate_button.pack(pady=20)
 
 # Run the application
