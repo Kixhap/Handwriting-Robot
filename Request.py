@@ -2,8 +2,6 @@ from openai import OpenAI
 import os
 from dotenv import load_dotenv
 
-# Define the regex pattern to allow only specified characters
-# The regex will match any character in the set defined within the square brackets
 reg = r"9Gn()T'p,ymRB0MLY#18si?-Du:b2AqeJ5g9!PatHoFcO.h6NIkd3 V 74rjlKWzESCU;xwvf"
 
 # Load environment variables from .env file
@@ -48,3 +46,7 @@ def get_openai_response(question):
     response = "".join(char for char in result if char in reg)
 
     return response
+
+
+
+
