@@ -85,7 +85,7 @@ root = tk.Tk()
 root.title("Handwriting Robot")
 
 # Set the size of the main window
-root.geometry("1280x720")
+root.geometry("960x500")
 
 # Create a style object
 style = ttk.Style()

@@ -17,7 +17,7 @@ def get_openai_response(question):
     # Create the completion request
     completion = client.chat.completions.create(
         model="nvidia/llama-3.1-nemotron-70b-instruct",
-        messages=[{"role": "user", "content": question}],
+        messages=[{"role": "user", "content": question+" opisz to krotko prosze"}],
         temperature=0.5,
         top_p=1,
         max_tokens=1024,
