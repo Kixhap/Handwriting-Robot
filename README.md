@@ -15,12 +15,6 @@
 </ul>
 
 <h2>Requirements</h2>
-<ul>
-    <li>Python environment</li>
-    <li>Robot capable of interpreting G-code</li>
-</ul>
-
-<h2>Requirements</h2>
     <ul>
         <li>Python environment</li>
         <li>Robot capable of interpreting G-code</li>
