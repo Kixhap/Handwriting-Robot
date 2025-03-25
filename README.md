@@ -11,15 +11,12 @@
 
 <h2>Features</h2>
 <ul>
-    <li>Automatic creation of handwritten notes, drawings, or signatures</li>
-    <li>High-precision reproduction by the robot</li>
-    <li>Integration of advanced natural language processing with precision mechanics</li>
+    <li>Automatic creation of handwritten notes</li>
 </ul>
 
 <h2>Requirements</h2>
 <ul>
     <li>Python environment</li>
-    <li><a href="https://github.com/sjvasquez/handwriting-synthesis">handwriting-synthesis</a> package</li>
     <li>Robot capable of interpreting G-code</li>
 </ul>
 
