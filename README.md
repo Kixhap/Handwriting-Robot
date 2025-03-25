@@ -26,7 +26,6 @@
 <h2>Requirements</h2>
     <ul>
         <li>Python environment</li>
-        <li><a href="https://github.com/sjvasquez/handwriting-synthesis">handwriting-synthesis</a> package</li>
         <li>Robot capable of interpreting G-code</li>
     </ul>
 
