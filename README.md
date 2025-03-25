@@ -1,7 +1,8 @@
 <h1>Handwriting
+    App to translate text into handwriting with LLM integration.
 <h2>How It Works</h2>
 <ol>
-    <li><strong>Input:</strong> The user poses a question to the LLM.</li>
+    <li><strong>Input:</strong> The user asks a question to the LLM.</li>
     <li><strong>Response Generation:</strong> The LLM provides a textual response.</li>
     <li><strong>SVG Creation:</strong> The response is transformed into a vector graphic in SVG format, imitating handwritten text using <a href="https://github.com/sjvasquez/handwriting-synthesis">handwriting-synthesis</a>.</li>
     <li><strong>G-code Conversion:</strong> The generated SVG file is converted into G-code.</li>
